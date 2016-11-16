@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<!--
+Turn this dropdown into a datalist! See the instructor notes for more information on datalists.
+-->
+
+<!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz - Datalists</title>
+</head>
+
+<body>
+    <!--<p>What kind of event are you hosting?</p>-->
+    <!--<select>
+        <option>Party</option>
+        <option>Meeting</option>
+        <option>Conference Talk</option>
+        <option>Sports Game</option>
+    </select>-->
+    <label>What kind of event are you hosting?<input list="event-list" name="list"></label>
+    <datalist id="event-list">
+        <option value="Party">
+        <option value="Meeting">
+        <option value="Conference Talk">
+        <option value="Sports Game">
+    </datalist>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz - Autocomplete</title>
+</head>
+<body>
+    <input id="ranged" type="range" min="0" max="10" step="1">
+    <p id="output">5</p>
+
+    <script>
+        var selected = document.querySelector("input#ranged");
+        var output = document.querySelector("p#output");
+        selected.onchange = function(){
+            output.innerHTML = this.value;
+        };
+    </script>
+</body>
+</html> 
