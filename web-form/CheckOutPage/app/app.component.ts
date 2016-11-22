@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { CartComponent } from './cart.component';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    template: `
-    <h2>My Checkout</h2>
-    `
+    templateUrl: './app.component.html'
 })
 
 export class AppComponent {

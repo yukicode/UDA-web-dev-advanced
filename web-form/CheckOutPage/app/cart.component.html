@@ -1,0 +1,11 @@
+<h4>Your Cart:</h4>
+<ul>
+    <li *ngFor="let product of products" class="clearfix">
+        <img class="img-responsive align-center" src="./app/images/{{product.imgUrl}}" alt="{{product.name}}">
+        <div class="details">
+            <p>{{product.name}} <span class="delete">DELETE</span></p>
+            <p><input class="count" type="number" min="1" [(ngModel)]="product.count"><span class="x">X</span>          ${{product.price}}</p>
+        </div>
+    </li>
+</ul>
+<p>Total: ${{getTotal()}}</p>

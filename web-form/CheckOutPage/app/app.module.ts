@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 //important components
 import { AppComponent } from './app.component';
+import { CartComponent } from './cart.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
         FormsModule,
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        CartComponent,
     ],
     bootstrap: [AppComponent],
 })
