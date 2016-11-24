@@ -1,11 +1,16 @@
 <h4>Your Cart:</h4>
 <ul>
-    <li *ngFor="let product of products" class="clearfix">
-        <img class="img-responsive align-center" src="./app/images/{{product.imgUrl}}" alt="{{product.name}}">
-        <div class="details">
-            <p>{{product.name}} <span class="delete">DELETE</span></p>
-            <p><input class="count" type="number" min="1" [(ngModel)]="product.count"><span class="x">X</span>          ${{product.price}}</p>
+    <li *ngFor="let item of mycart.items" class="row item-tab">
+        <div class="product-img col-xs-4">
+            <img class="img-responsive" src="./app/images/{{item.product.imgUrl}}" alt="{{item.product.name}}">
+        </div>
+        <div class="details col-xs-8">
+            <p><label *ngIf="!canEdit">{{item.count}}</label><input *ngIf="canEdit" class="count" type="number" min="1" [(ngModel)]="item.count"><span class="x">X</span> ${{item.product.price}}</p>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" (click)="editAmount()">{{editingState}}</button>
+                <button type="button" class="btn btn-default" (click)="deleteItem(item)">Delete</button>
+            </div>
         </div>
     </li>
 </ul>
-<p>Total: ${{getTotal()}}</p>
+<p>Total: ${{mycart.getTotal()}}</p>
