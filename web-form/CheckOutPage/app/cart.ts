@@ -42,12 +42,12 @@ export class Cart {
         this.items.splice(index, 1);
     }
 
-    getTotal(): number {
+    getTotal(): string {
         var total = 0;
         this.items.forEach(function(item){
             total += item.getTotal();
         });
-        return total;
+        return total.toFixed(2);
     }
 }
 

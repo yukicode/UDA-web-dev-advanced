@@ -1,3 +1,23 @@
-h4 {
+.info-section {
+    margin: 30px 2px 50px 2px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+h3 {
+    display:block;
+    width:300px;
+    margin:auto;
     text-align: center;
+    position: relative;
+    top: -15px;
+    background-color: rgba(238, 232, 225, 1);
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
