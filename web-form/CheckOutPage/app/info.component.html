@@ -1,5 +1,5 @@
 <div>
-    <form>
+    <form autocomplete="on">
         <div id="shipping-form" class="row info-section">
             <h3>Shipping Information</h3>
             <div class="form-group col-sm-6">
@@ -15,48 +15,47 @@
                 <input type="text" class="form-control" id="address" name="address" [(ngModel)]='myInfo.address' required>
             </div>
         </div>
-        <div id="billing-form" class="row info-section">
-            <h3>Billing Information</h3>
-            <div class="form-group col-sm-12">
-                <input type="checkbox" id="same-info" name="same-info" [(ngModel)]='myInfo.isSame'
-                    required> <label for="same-info">Billing infomation is the same as shipping address.</label>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="billing-first-name">First Name</label>
-                <input type="text" class="form-control" id="billing-first-name" name="billing-first-name" [(ngModel)]='myInfo.billingFirstName'
-                    required>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="billing-last-name">Last Name</label>
-                <input type="text" class="form-control" id="billing-last-name" name="billing-last-name" [(ngModel)]='myInfo.billingLastName'
-                    required>
-            </div>
-            <div class="form-group col-sm-12">
-                <label for="billing-address">Address</label>
-                <input type="text" class="form-control" id="billing-address" name="billing-address" [(ngModel)]='myInfo.billingAddress' required>
-            </div>
-        </div>
         <div id="card-form" class="row info-section">
             <h3>Card Information</h3>
+            <div class="form-group col-sm-12">
+                <input type="checkbox" id="same-info" name="same-info" [(ngModel)]='myInfo.isSame'> <label for="same-info">Billing infomation is the same as shipping address.</label>
+            </div>
+            <div class="form-group col-sm-6" [hidden] = "myInfo.isSame">
+                <label for="billing-first-name">First Name</label>
+                <input type="text" class="form-control" id="billing-first-name" name="billing-first-name" [(ngModel)]='myInfo.billingFirstName'>
+            </div>
+            <div class="form-group col-sm-6" [hidden] = "myInfo.isSame">
+                <label for="billing-last-name">Last Name</label>
+                <input type="text" class="form-control" id="billing-last-name" name="billing-last-name" [(ngModel)]='myInfo.billingLastName'>
+            </div>
+            <div class="form-group col-sm-12" [hidden] = "myInfo.isSame">
+                <label for="billing-address">Address</label>
+                <input type="text" class="form-control" id="billing-address" name="billing-address" [(ngModel)]='myInfo.billingAddress'>
+            </div>
             <div class="form-group col-sm-8">
                 <label for="card-number">Credit Card Number</label>
-                <input type="text" class="form-control" id="card-number" name="card-number" [(ngModel)]='myInfo.cardNumber' required>
+                <input type="text" class="form-control" id="card-number" name="card-number" [(ngModel)]='myInfo.cardNumber' (keyup)='checkNumber()' required>
             </div>
             <div class="form-group col-sm-4">
                 <label for="card-cvv">CVV</label>
-                <input type="text" class="form-control" id="card-cvv" name="card-cvv" [(ngModel)]='myInfo.cvv' required>
+                <input type="text" class="form-control" id="card-cvv" name="card-cvv" [(ngModel)]='myInfo.cvv' (keyup)='checkNumber()' required>
             </div>
             <div class="form-group col-sm-4">
                 <label for="card-exp-month">Expire Month</label>
-                <input type="text" class="form-control" id="card-exp-month" name="card-exp-month" [(ngModel)]='myInfo.expMonth' required>
+                <input type="number" min=1 max=12 step=1 class="form-control" id="card-exp-month" name="card-exp-month" [(ngModel)]='myInfo.expMonth' (keyup)='checkNumber()' required>
             </div>
             <div class="form-group col-sm-4">
                 <label for="card-exp-year">Expire Year</label>
-                <input type="text" class="form-control" id="card-exp-year" name="card-exp-year" [(ngModel)]='myInfo.expYear' required>
+                <input type="number" min=2016 step=1 class="form-control" id="card-exp-year" name="card-exp-year" [(ngModel)]='myInfo.expYear' (keyup)='checkNumber()' required>
             </div>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="col-sm-12" [hidden] = "myInfo.isValid">
+                <p>{{myInfo.issues}}</p>
+            </div>
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-default" (click)="submitForm()">Submit</button>
+            </div>
         </div>
     </form>
 </div>
