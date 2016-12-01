@@ -43,6 +43,17 @@ export class Cart {
         this.items.splice(index, 1);
     }
 
+    getShippingMethod(): string {
+        switch (this.shippingCost){
+            case "0.00": 
+                return "Ground shipping, 5-8 business days.";
+            case "5.99":
+                return "Two day shipping, 2-3 business days.";
+            case "12.99":
+                return "Overnight shipping.";
+        }
+    }
+
     getTotal(): string {
         var total = 0;
         this.items.forEach(function(item){

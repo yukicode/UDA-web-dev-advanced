@@ -1,0 +1,22 @@
+<h3>Please review your order: </h3>
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Shipping Information</h4>
+        <p>{{myinfo.firstName}} {{myinfo.lastName}}</p>
+        <p>{{myinfo.address}}</p>
+    </div>
+    <div class="col-sm-12">
+        <h4>Billing Information</h4>
+        <p>{{myinfo.billingFirstName}} {{myinfo.billingLastName}}</p>
+        <p>{{myinfo.billingAddress}}</p>
+        <p>{{myinfo.cardNumber}}</p>
+    </div>
+    <div class="col-sm-12">
+        <h4>Shipping Method</h4>
+        <p>{{mycart.getShippingMethod()}}</p>
+    </div>
+    <div class="col-sm-12">
+        <button type="button" class="btn btn-default">Previous</button>
+        <button type="button" class="btn btn-primary" (click)="confirm()">Confirm Order</button>
+    </div>
+</div>

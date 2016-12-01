@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart.component';
 import { InfoComponent } from './info.component';
 import { ShippingComponent } from './shipping.component';
-import { CartService} from './cart.service';
+import { ReviewComponent } from './review.component';
+import { InfoService } from './info.service';
+import { CartService } from './cart.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,8 +27,9 @@ import { AppRoutingModule } from './app-routing.module';
         CartComponent,
         InfoComponent,
         ShippingComponent,
+        ReviewComponent
     ],
-    providers: [CartService],
+    providers: [CartService, InfoService],
     bootstrap: [AppComponent],
 })
 

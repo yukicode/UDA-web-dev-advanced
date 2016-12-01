@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Info } from './info';
-import {Router} from '@angular/router';
+import { InfoService } from './info.service';
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -9,15 +10,20 @@ import {Router} from '@angular/router';
     styleUrls: ['./info.component.css'],
 })
 
-export class InfoComponent {
-    constructor (
-        private router: Router
-    ){}
+export class InfoComponent implements OnInit {
+    myInfo: Info;
+    constructor(
+        private router: Router,
+        private infoService: InfoService
+    ) { }
 
-    myInfo = new Info();
+    ngOnInit(): void {
+        this.myInfo = this.infoService.getInfo();
+    }
+
     submitForm = function () {
         this.myInfo.getIssues();
-        if(this.myInfo.isValid){
+        if (this.myInfo.isValid) {
             this.router.navigate(['./shipping']);
         }
     };
