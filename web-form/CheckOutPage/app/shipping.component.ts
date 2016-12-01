@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {Cart } from './cart';
+import { CartService } from './cart.service';
 
 @Component({
     moduleId: module.id,
@@ -8,6 +10,13 @@ import {Router} from '@angular/router';
     styleUrls: ['./shipping.component.css'],
 })
 
-export class ShippingComponent {
-    
+export class ShippingComponent implements OnInit {
+    mycart: Cart;
+    constructor (
+        private cartService: CartService
+    ){}
+
+    ngOnInit(): void {
+        this.mycart = this.cartService.getCart();
+    }
 }

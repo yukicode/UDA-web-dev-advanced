@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart.component';
 import { InfoComponent } from './info.component';
 import { ShippingComponent } from './shipping.component';
+import { CartService} from './cart.service';
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -24,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
         InfoComponent,
         ShippingComponent,
     ],
+    providers: [CartService],
     bootstrap: [AppComponent],
 })
 
