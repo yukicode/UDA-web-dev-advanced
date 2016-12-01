@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from './product';
 import { PRODUCTS } from './products.data';
 import { CartItem, Cart } from './cart';
@@ -10,16 +10,10 @@ import { CartItem, Cart } from './cart';
     styleUrls: ['./cart.component.css'],
 })
 
-export class CartComponent implements OnInit {
-    mycart = new Cart();
+export class CartComponent {
+    _mycart: Cart;
     canEdit = false;
     editingState = "Edit";
-
-    ngOnInit(): void {
-        this.mycart.addItem(PRODUCTS[0], 1);
-        this.mycart.addItem(PRODUCTS[1], 1);
-        this.mycart.addItem(PRODUCTS[2], 2);
-    }
 
     editAmount() : void {
         this.canEdit = !this.canEdit;
@@ -28,5 +22,14 @@ export class CartComponent implements OnInit {
 
     deleteItem(item: CartItem): void {
         this.mycart.deleteItem(item);
+    }
+
+    @Input()
+    set mycart(cart: Cart){
+        this._mycart = cart;
+    }
+
+    get mycart() {
+        return this._mycart;
     }
 }

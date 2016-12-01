@@ -52,8 +52,12 @@ export class Cart {
         return total.toFixed(2);
     }
 
-    getShipping(): number {
-        return this.shippingCost;
+    getShipping(): string {
+        return this.shippingCost.toFixed(2);
+    }
+
+    getFinalCost(): string {
+       return (parseFloat(this.getTotal()) + this.shippingCost).toFixed(2);
     }
 }
 
