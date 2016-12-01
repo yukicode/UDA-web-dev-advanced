@@ -81,51 +81,51 @@ export class Info {
     checkValidity(){
         this.issues = "";
         if(!this._firstName){
-            this.issues += "First name can't be empty \n";
+            this.issues += "First name can't be empty. \n";
         }
 
         if(!this._lastName){
-            this.issues += "Last name can't be empty \n";
+            this.issues += "Last name can't be empty. \n";
         }
 
         if(!this._address){
-            this.issues += "Address can't be empty \n";
+            this.issues += "Address can't be empty. \n";
         }
 
         if(!this._billingFirstName){
-            this.issues += "Billing first name can't be empty \n";
+            this.issues += "Billing first name can't be empty. \n";
         }
 
         if(!this._billingLastName){
-            this.issues += "Billing last name can't be empty \n";
+            this.issues += "Billing last name can't be empty. \n";
         }
 
         if(!this._billingAddress){
-            this.issues += "Billing address can't be empty \n";
+            this.issues += "Billing address can't be empty. \n";
         }
 
         if(!this.cardNumber){
-            this.issues += "Card number can't be empty \n";
+            this.issues += "Card number can't be empty. \n";
         }else if(this.cardNumber.length !=16){
-            this.issues += "Incorrect length of credit card number \n";
+            this.issues += "Incorrect length of credit card number. \n";
         }
 
         if(!this.cvv){
-            this.issues += "Need cvv number \n";
+            this.issues += "Need cvv number. \n";
         }else if(this.cvv.toString().length != 3 ){
             this.issues += "CVV length is not 3 \n";
         }
 
         if(!this.expMonth){
-            this.issues += "Need expire month \n";
+            this.issues += "Need expire month. \n";
         }else if(this.expMonth < 1 || this.expMonth > 12){
-            this.issues += "Expire month is invalid \n";
+            this.issues += "Expire month is invalid. \n";
         }
 
         if(!this.expYear){
-            this.issues += "Need expire year \n";
+            this.issues += "Need expire year. \n";
         }else if(this.expYear < 2016){
-            this.issues += "Expire year is invalid \n";
+            this.issues += "Expire year is invalid. \n";
         }
     }
 }

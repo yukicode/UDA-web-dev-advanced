@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Info } from './info';
+import {Router} from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -9,9 +10,16 @@ import { Info } from './info';
 })
 
 export class InfoComponent {
+    constructor (
+        private router: Router
+    ){}
+
     myInfo = new Info();
     submitForm = function () {
         this.myInfo.getIssues();
+        if(this.myInfo.isValid){
+            this.router.navigate(['./shipping']);
+        }
     };
     checkNumber = function () {
         if (this.myInfo.cardNumber) {

@@ -16,6 +16,8 @@ export class CartItem {
 
 export class Cart {
     items: CartItem[];
+    selectedShipping = false;
+    shippingCost: number;
 
     constructor(){this.items = [];}
 
@@ -48,6 +50,10 @@ export class Cart {
             total += item.getTotal();
         });
         return total.toFixed(2);
+    }
+
+    getShipping(): number {
+        return this.shippingCost;
     }
 }
 

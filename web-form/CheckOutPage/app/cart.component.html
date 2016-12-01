@@ -1,4 +1,4 @@
-<h4>Your Cart:</h4>
+<h4>Your Order</h4>
 <ul>
     <li *ngFor="let item of mycart.items" class="row item-tab">
         <div class="product-img col-xs-4">
@@ -13,4 +13,5 @@
         </div>
     </li>
 </ul>
-<p>Total: ${{mycart.getTotal()}}</p>
+<p>Subtotal: ${{mycart.getTotal()}}</p>
+<p *ngIf="shippingSelected">Shipping: ${{mycart.getShipping()}}</p>

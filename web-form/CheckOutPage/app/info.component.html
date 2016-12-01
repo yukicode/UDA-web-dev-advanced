@@ -1,5 +1,5 @@
 <div>
-    <form autocomplete="on">
+    <form autocomplete="on" #myForm="ngForm">
         <div id="shipping-form" class="row info-section">
             <h3>Shipping Information</h3>
             <div class="form-group col-sm-6">
@@ -51,10 +51,11 @@
         </div>
         <div class="row">
             <div class="col-sm-12" [hidden] = "myInfo.isValid">
+                <p>Pleas fix the following issues: </p>
                 <p>{{myInfo.issues}}</p>
             </div>
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-default" (click)="submitForm()">Submit</button>
+                <button type="button" class="btn btn-default" (click)="submitForm()" [disabled]="!myForm.form.valid">Submit</button>
             </div>
         </div>
     </form>

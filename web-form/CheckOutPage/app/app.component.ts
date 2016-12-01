@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CartComponent } from './cart.component';
 
 @Component({
     moduleId: module.id,
