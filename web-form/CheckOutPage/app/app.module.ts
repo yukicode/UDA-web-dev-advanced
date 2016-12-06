@@ -11,6 +11,7 @@ import { CartComponent } from './cart.component';
 import { InfoComponent } from './info.component';
 import { ShippingComponent } from './shipping.component';
 import { ReviewComponent } from './review.component';
+import { ProgressComponent } from './progress-bar.component';
 import { InfoService } from './info.service';
 import { CartService } from './cart.service';
 
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
         CartComponent,
         InfoComponent,
         ShippingComponent,
-        ReviewComponent
+        ReviewComponent,
+        ProgressComponent
     ],
     providers: [CartService, InfoService],
     bootstrap: [AppComponent],
